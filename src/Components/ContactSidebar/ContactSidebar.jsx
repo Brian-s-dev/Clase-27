@@ -4,32 +4,37 @@ import { ContactsContext } from '../../Context/ContactsContext'
 import { Link } from 'react-router'
 
 export default function ContactSidebar() {
-    //useContext: hook que nos permite consumir el contexto, es decir, acceder a los estados y funciones que se encuentran en el contexto
-    //Recibepor parametro el contexto que queremos consumir, en este caso el ContactsContext
-    //Una vez consumido me traera el valor del value del contexto, es decir, el provider_values del ContactContextProvider
+    //useContext es un hook que nos permite consumir el contexto
+    //Recibe por parametro el contexto que queremos consumir
+    //Una vez consumido me traera el valor del value del contexto
     const { contacts, favorite_name } = useContext(ContactsContext)
   return (
     <div>
         <h2>Whatsapp Clone</h2>
-        <h3>Me cae muy bien {favorite_name}</h3>
+        <h3>Me cae muy bien: {favorite_name}</h3>
         <div>
             {
                 contacts.map(
-                    (contact) => {
+                    (contact ) => {
                         return (
-                            <Link
+                            <Link 
                                 to={`/contact/${contact.id}`}
                                 key={contact.id}
+                                
                             >
                                 <img 
                                     src={contact.profile_picture} 
                                     alt={contact.name} 
                                     style={
                                         {
-                                            width:'200px'
+                                            width: '200px'
                                         }
                                     }
                                 />
+                                <h3>{contact.name}</h3>
+                                <span>{contact.last_time_connection}</span>
+                                <br />
+                                <hr />
                             </Link>
                         )
                     }

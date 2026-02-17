@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 export default function ErrorNotFoundScreen() {
   return (
     <div>
-        <h1>Ups! Esta pagina no fue encontrada</h1>
-        <p>La pagina que estas buscando no existe</p>
-        <Link to="/">Volver al Inicio</Link>
+        <h1>Ups, página no encontrada</h1>
+        <p>La página que estás buscando no existe o ha sido movida.</p>
+        <Link to="/">Volver al inicio</Link>
     </div>
   )
 }
